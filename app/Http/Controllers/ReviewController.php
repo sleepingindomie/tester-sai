@@ -201,4 +201,21 @@ class ReviewController extends Controller
 
         return view('view', compact('data', 'description_of_goods'));
     }
+
+    public function showContainer($id)
+    {
+        // Ambil data kontainer berdasarkan ID
+        $container = DB::table('shipping_info')->where('id', $id)->first();
+
+        // Jika tidak ditemukan, lempar kesalahan atau alihkan
+        if (!$container) {
+            return response()->json(['error' => 'Container not found'], 404);
+        }
+
+        // Ambil data dari tabel container berdasarkan nomor BL
+        $containers = DB::table('container')->where('bl', $container->bl)->get();
+
+        // Kembalikan tampilan detail kontainer
+        return view('partials.container_detail', compact('containers'))->render();
+    }
 }

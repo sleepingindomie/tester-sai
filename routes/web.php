@@ -44,6 +44,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/inputpage2/submit', [ShippingController::class, 'submitContainer2'])->name('inputpage2.submit'); 
     Route::get('/attachedsheet/{bl}', [ShippingController::class, 'attachedSheet'])->name('attachedsheet');
 
+    Route::get('view_container/{id}', [ReviewController::class, 'showContainer'])->name('view_container');
+
     Route::get('/notfound', function () {
         return view('notfound');
     })->name('notfound');

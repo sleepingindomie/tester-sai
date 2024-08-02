@@ -175,6 +175,7 @@
                                 <!-- Voyages akan diisi melalui JavaScript -->
                             </select>
                         </div>
+                    </div>
                     @endif
 
                     <!-- DataTales Example -->
@@ -201,12 +202,12 @@
                                             $un_number_exists = false;
                                             @endphp
                                             @foreach($result as $row)
-                                            @if(!empty($row->imo_number))
-                                            @php $imo_number_exists = true; @endphp
-                                            @endif
-                                            @if(!empty($row->un_number))
-                                            @php $un_number_exists = true; @endphp
-                                            @endif
+                                                @if(!empty($row->imo_number))
+                                                    @php $imo_number_exists = true; @endphp
+                                                @endif
+                                                @if(!empty($row->un_number))
+                                                    @php $un_number_exists = true; @endphp
+                                                @endif
                                             @endforeach
                                             @if($imo_number_exists)
                                             <th>IMO Number</th>
@@ -229,7 +230,7 @@
                                             $row_class = $row->progress == 'Edited' ? 'style="background-color: #ffe6e6;"' : '';
                                             @endphp
                                             <tr {!! $row_class !!}>
-                                                <td>{{ $row->bl }}</td>
+                                                <td><a href="#" class="view-container" data-id="{{ $row->id }}">{{ $row->bl }}</a></td>
                                                 @if(Auth::user()->role == 'superadmin' || Auth::user()->role == 'admin')
                                                     <td>{{ $row->ocean_vessel }}</td>
                                                     @php
@@ -360,6 +361,25 @@
         </div>
     </div>
 
+    <!-- Container Detail Modal-->
+    <div class="modal fade" id="containerModal" tabindex="-1" role="dialog" aria-labelledby="containerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="containerModalLabel">Container Detail</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="containerDetail" class="table-responsive">
+                        <!-- Detail container akan dimuat di sini -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
  <!-- Logout Modal-->
  <div class="modal fade" id="logoutModal" tabmain="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -386,21 +406,21 @@
     </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
 <!-- Page level plugins -->
-<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
 <!-- Page level custom scripts -->
-<script src="js/demo/datatables-demo.js"></script>
+<script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
 <script>
     $('#fileModal').on('show.bs.modal', function (event) {
@@ -431,6 +451,22 @@
             var filePath = event.target.getAttribute('href');
             document.getElementById('fileViewer').src = filePath;
         }
+    });
+
+    $(document).on('click', '.view-container', function() {
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'view_container/' + id,
+            method: 'GET',
+            success: function(response) {
+                $('#containerDetail').html(response);
+                $('#containerModal').modal('show');
+            }
+        });
+    });
+
+    $('#containerModal').on('hidden.bs.modal', function () {
+        $('#containerDetail').html('');
     });
 
     $(document).ready(function() {
