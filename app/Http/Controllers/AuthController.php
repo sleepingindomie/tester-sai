@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Https\Controllers;
+namespace App\Http\Controllers;
 
-use Illuminate\Https\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
