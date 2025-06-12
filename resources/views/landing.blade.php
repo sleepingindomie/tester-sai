@@ -98,31 +98,36 @@
         <p>Copyright © Dp 2024</p>
     </div>
     <script>
-        const images = [
-            'img/samudera1.jpg',
-            'img/samudera2.jpg',
-            'img/samudera3.jpg'
-        ];
-        let currentImageIndex = 0;
-        const backgroundElement = document.getElementById('background');
+  
+    const images = [
+        'https://github.com/sleepingindomie/tester-sai/blob/main/public/img/samudera1.jpg', 
+        'https://github.com/sleepingindomie/tester-sai/blob/main/public/img/samudera2.jpg', 
+        'https://github.com/sleepingindomie/tester-sai/blob/main/public/img/samudera3.jpg'  
+    ];
 
-        // Preload images
-        const preloadedImages = [];
-        images.forEach((src) => {
-            const img = new Image();
-            img.src = src;
-            preloadedImages.push(img);
-        });
+    let currentImageIndex = 0;
+    const backgroundElement = document.getElementById('background'); // Pastikan Anda memiliki elemen dengan id="background" di HTML Anda
 
-        function changeBackground() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            backgroundElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
-        }
+    // Preload gambar untuk transisi yang lebih mulus
+    const preloadedImages = [];
+    images.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        preloadedImages.push(img);
+    });
 
-        // Set initial background image
+    function changeBackground() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
         backgroundElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+    }
 
-        setInterval(changeBackground, 5000); // Ganti gambar setiap 5 detik
-    </script>
+    // Atur gambar latar belakang awal saat halaman dimuat
+    if (images.length > 0) {
+        backgroundElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+    }
+
+    // Ganti gambar setiap 5 detik (5000 milidetik)
+    setInterval(changeBackground, 5000);
+</script>
 </body>
 </html>
