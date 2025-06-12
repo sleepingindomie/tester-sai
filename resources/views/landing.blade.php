@@ -103,7 +103,6 @@
         'https://raw.githubusercontent.com/sleepingindomie/tester-sai/main/public/img/samudera2.jpg',  
         'https://raw.githubusercontent.com/sleepingindomie/tester-sai/main/public/img/samudera3.jpg'   
     ];
-    // --- AKHIR PERUBAHAN ---
 
     let currentImageIndex = 0;
     const backgroundElement = document.getElementById('background');
