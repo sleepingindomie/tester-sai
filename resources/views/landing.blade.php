@@ -99,9 +99,9 @@
     </div>
     <script>
         const images = [
-            '/img/samudera1.jpg',
-            '/img/samudera2.jpg',
-            '/img/samudera3.jpg'
+            'img/samudera1.jpg',
+            'img/samudera2.jpg',
+            'img/samudera3.jpg'
         ];
         let currentImageIndex = 0;
         const backgroundElement = document.getElementById('background');
