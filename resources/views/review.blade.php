@@ -134,7 +134,7 @@
                                         <span class="text-gray-600 small">{{ $kode_bl }}</span>
                                     @endif
                                 </span>
-                                <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
+                                <img class="img-profile rounded-circle" src="img-profile rounded-circle" src="https://raw.githubusercontent.com/sleepingindomie/tester-sai/refs/heads/main/public/img/undraw_profile.svg">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
