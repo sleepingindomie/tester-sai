@@ -98,8 +98,6 @@
         <p>Copyright © Dp 2024</p>
     </div>
     <script>
-    // --- PERUBAHAN DI SINI ---
-    // Gunakan URL "raw" untuk menautkan langsung ke file gambar
     const images = [
         'https://raw.githubusercontent.com/sleepingindomie/tester-sai/main/public/img/samudera1.jpg',  
         'https://raw.githubusercontent.com/sleepingindomie/tester-sai/main/public/img/samudera2.jpg',  
