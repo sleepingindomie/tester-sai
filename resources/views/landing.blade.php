@@ -98,15 +98,17 @@
         <p>Copyright © Dp 2024</p>
     </div>
     <script>
-  
+    // --- PERUBAHAN DI SINI ---
+    // Gunakan URL "raw" untuk menautkan langsung ke file gambar
     const images = [
-        'https://github.com/sleepingindomie/tester-sai/blob/main/public/img/samudera1.jpg', 
-        'https://github.com/sleepingindomie/tester-sai/blob/main/public/img/samudera2.jpg', 
-        'https://github.com/sleepingindomie/tester-sai/blob/main/public/img/samudera3.jpg'  
+        'https://raw.githubusercontent.com/sleepingindomie/tester-sai/main/public/img/samudera1.jpg',  
+        'https://raw.githubusercontent.com/sleepingindomie/tester-sai/main/public/img/samudera2.jpg',  
+        'https://raw.githubusercontent.com/sleepingindomie/tester-sai/main/public/img/samudera3.jpg'   
     ];
+    // --- AKHIR PERUBAHAN ---
 
     let currentImageIndex = 0;
-    const backgroundElement = document.getElementById('background'); // Pastikan Anda memiliki elemen dengan id="background" di HTML Anda
+    const backgroundElement = document.getElementById('background');
 
     // Preload gambar untuk transisi yang lebih mulus
     const preloadedImages = [];
