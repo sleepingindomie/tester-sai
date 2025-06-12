@@ -95,11 +95,11 @@
 
         /* Specific backgrounds for each card */
         .card.input {
-            background-image: url('/img/card1.jpg'); /* Update with actual image path */
+            background-image: url("https://raw.githubusercontent.com/sleepingindomie/tester-sai/refs/heads/main/public/img/card1.jpg");
         }
 
         .card.review {
-            background-image: url('/img/card2.jpg'); /* Update with actual image path */
+            background-image: url("https://raw.githubusercontent.com/sleepingindomie/tester-sai/refs/heads/main/public/img/card2.jpg"); 
         }
 
         /* Color for the icons */
@@ -242,7 +242,7 @@
                                         <span class="text-gray-600 small">{{ $kode_bl ?? '' }}</span>
                                     @endif
                                 </span>
-                                <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
+                                <img class="img-profile rounded-circle" src="https://raw.githubusercontent.com/sleepingindomie/tester-sai/refs/heads/main/public/img/undraw_profile.svg">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
