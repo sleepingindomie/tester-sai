@@ -2,19 +2,11 @@
     "version": 2,
     "framework": null,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.7.1" }
+        "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
-    "builds": [
-        {
-            "src": "./index.js",
-            "use": "@vercel/node"
-        }
-    ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
+        { "src": "/build/(.*)", "dest": "/public/build/" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
     ],
     "public": true,
     "buildCommand": "vite build",
