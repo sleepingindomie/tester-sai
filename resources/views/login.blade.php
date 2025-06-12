@@ -10,9 +10,9 @@
     <title>Docsys - Login</title>
 
     <link rel="icon" href="https://www.samudera.id/public_assets/img/logo-ico.jpg" type="image/x-icon">
-    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.4/css/sb-admin-2.min.css" rel="stylesheet">
 
     <style>
         .bg-login-image {
@@ -104,7 +104,7 @@
                                         @if ($errors->any())
                                             <script>showError('{{ $errors->first() }}');</script>
                                         @endif
-                                        <form class="user" action="/login" method="POST">
+                                        <form class="user" action="{{ route('login.post') }}" method="POST">
                                             @csrf
                                             <div class="form-group">
                                                 <input type="text" class="form-control form-control-user" id="exampleInputUsername" name="username" placeholder="Enter Username..." required>
@@ -131,10 +131,10 @@
         <p>Copyright &copy; Dp 2024</p>
     </footer>
 
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="/js/sb-admin-2.min.js"></script>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
 </body>
 
